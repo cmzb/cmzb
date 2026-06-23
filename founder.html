@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanush V | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        },
+                        dark: {
+                            bg: '#0f172a',
+                            card: '#1e293b',
+                            border: '#334155'
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #2dd4bf, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(45, 212, 191, 0.2);
+            border-color: rgba(45, 212, 191, 0.3);
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typing cursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-heading font-bold text-2xl tracking-tighter text-white">
+                        Dhanush<span class="text-brand-400">.V</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about"
+                        class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">About</a>
+                    <a href="#skills"
+                        class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Skills</a>
+                    <a href="#experience"
+                        class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Experience</a>
+                    <a href="#projects"
+                        class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Projects</a>
+                    <a href="#education"
+                        class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Education</a>
+                    <a href="#contact"
+                        class="px-5 py-2.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/50 hover:bg-brand-500 hover:text-white transition-all duration-300 text-sm font-medium">Get
+                        in Touch</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-bg border-b border-dark-border absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-xl">
+                <a href="#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 mobile-link">About</a>
+                <a href="#skills"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 mobile-link">Skills</a>
+                <a href="#experience"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 mobile-link">Experience</a>
+                <a href="#projects"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 mobile-link">Projects</a>
+                <a href="#education"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 mobile-link">Education</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-brand-400 hover:text-brand-300 mobile-link">Contact
+                    Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+            <div
+                class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob">
+            </div>
+            <div
+                class="absolute top-[20%] right-[-10%] w-96 h-96 bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000">
+            </div>
+            <div
+                class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-purple-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000">
+            </div>
+            <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center md:text-left max-w-4xl mx-auto md:mx-0">
+                <p class="text-brand-400 font-medium tracking-wide mb-4 animate-fade-in-up"
+                    style="animation-delay: 0.1s;">Hi there, I am</p>
+                <h1 class="font-heading text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight animate-fade-in-up"
+                    style="animation-delay: 0.2s;">
+                    Dhanush V.
+                </h1>
+                <h2 class="font-heading text-2xl sm:text-3xl md:text-5xl font-bold text-slate-400 mb-6 h-12 md:h-16 animate-fade-in-up"
+                    style="animation-delay: 0.3s;">
+                    I am a <span id="typed-text" class="gradient-text typing-cursor"></span>
+                </h2>
+                <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto md:mx-0 mb-10 leading-relaxed animate-fade-in-up"
+                    style="animation-delay: 0.4s;">
+                    Expert at bridging finance and technology. I build full-stack Firebase apps and automated AI systems
+                    to drive scalable social change and empower the youth.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start animate-fade-in-up"
+                    style="animation-delay: 0.5s;">
+                    <a href="#projects"
+                        class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-500 text-white font-medium hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2">
+                        View Projects <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#contact"
+                        class="w-full sm:w-auto px-8 py-4 rounded-full bg-dark-card border border-dark-border text-white font-medium hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
+                        Contact Me
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="mt-12 flex items-center justify-center md:justify-start gap-6 animate-fade-in-up"
+                    style="animation-delay: 0.6s;">
+                    <a href="https://linkedin.com/in/ca-dhanush-396a72325/" target="_blank"
+                        class="text-slate-400 hover:text-brand-400 text-2xl transition-transform hover:scale-110">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:dhanushvm619@gmail.com"
+                        class="text-slate-400 hover:text-brand-400 text-2xl transition-transform hover:scale-110">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+916382386411"
+                        class="text-slate-400 hover:text-brand-400 text-2xl transition-transform hover:scale-110">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+            <a href="#about" class="text-slate-400 hover:text-brand-400 transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark-bg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="flex items-center gap-4 mb-12">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-white">Profile Summary</h2>
+                    <div class="h-[1px] bg-dark-border flex-grow max-w-xs"></div>
+                </div>
+
+                <div
+                    class="bg-dark-card border border-dark-border rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                    <!-- Decorative element -->
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-brand-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none">
+                    </div>
+
+                    <div class="grid md:grid-cols-12 gap-10 items-center relative z-10">
+                        <div class="md:col-span-12 lg:col-span-8">
+                            <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                                I am a <strong class="text-white font-semibold">Social Impact Architect</strong> with
+                                over 8 years of leadership experience in rural development and youth empowerment.
+                                Currently serving as the <strong class="text-brand-400">Founder & CEO of
+                                    ChangeMakersZB</strong>, I am dedicated to advancing Dr. Kalam's vision through
+                                tech-driven innovation and statewide youth mentorship.
+                            </p>
+                            <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                                With a unique intersection of skills, I am an expert at bridging finance and technology.
+                                My technical journey involves building full-stack Firebase applications and engineering
+                                automated, agentic AI systems that drive scalable and sustainable social change.
+                            </p>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10">
+                                <div>
+                                    <h4 class="text-brand-400 font-bold text-3xl font-heading mb-1">8+</h4>
+                                    <p class="text-sm text-slate-400">Years Leadership</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-brand-400 font-bold text-3xl font-heading mb-1">70+</h4>
+                                    <p class="text-sm text-slate-400">High-impact Mtgs</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-brand-400 font-bold text-3xl font-heading mb-1">AI/Web</h4>
+                                    <p class="text-sm text-slate-400">Tech Expertise</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-12 lg:col-span-4 flex justify-center lg:justify-end">
+                            <div class="relative group">
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                                </div>
+                                <div
+                                    class="relative w-64 h-64 bg-dark-card border border-dark-border rounded-2xl flex items-center justify-center flex-col p-6 text-center transform transition duration-500 hover:scale-105">
+                                    <i class="fas fa-rocket text-5xl text-brand-400 mb-4"></i>
+                                    <h3 class="text-white font-bold text-xl mb-2">ChangeMakersZB</h3>
+                                    <p class="text-slate-400 text-sm">Founder & CEO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="flex items-center gap-4 mb-12 justify-end">
+                    <div class="h-[1px] bg-dark-border flex-grow max-w-xs hidden sm:block"></div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-white">Technical Arsenal</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Web Dev -->
+                    <div class="bg-dark-card border border-dark-border rounded-2xl p-6 card-hover group">
+                        <div
+                            class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Web Development</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Full-Stack
+                                Dev</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Google
+                                Firebase</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Firestore</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Auth
+                                & Hosting</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">WordPress</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Google
+                                Sites</span>
+                        </div>
+                    </div>
+
+                    <!-- AI & Tech -->
+                    <div class="bg-dark-card border border-dark-border rounded-2xl p-6 card-hover group">
+                        <div
+                            class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-brain text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">AI & Technology</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Gemini
+                                Expert</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">ChatGPT</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Agentic
+                                AI</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Gen
+                                AI Tools</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Prompting</span>
+                        </div>
+                    </div>
+
+                    <!-- Finance & Accounting -->
+                    <div class="bg-dark-card border border-dark-border rounded-2xl p-6 card-hover group">
+                        <div
+                            class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-6 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Finance & Accounting</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Stock
+                                Market</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Tally
+                                Prime</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">KYC
+                                Handling</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Financial
+                                Reports</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Bookkeeping</span>
+                        </div>
+                    </div>
+
+                    <!-- Content Creation -->
+                    <div class="bg-dark-card border border-dark-border rounded-2xl p-6 card-hover group">
+                        <div
+                            class="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-6 text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-pen-nib text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Content Creation</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Blog
+                                Writing</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Photo
+                                Editing</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Video
+                                Editing</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Documentation</span>
+                        </div>
+                    </div>
+
+                    <!-- Office Tools -->
+                    <div class="bg-dark-card border border-dark-border rounded-2xl p-6 card-hover group">
+                        <div
+                            class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6 text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-file-word text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Office Tools</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">MS
+                                Word</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">MS
+                                Excel</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">MS
+                                PowerPoint</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">English
+                                Typing</span>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="bg-dark-card border border-dark-border rounded-2xl p-6 card-hover group">
+                        <div
+                            class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Leadership & Soft Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Project
+                                Management</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Team
+                                Coordination</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Public
+                                Speaking</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Fast
+                                Learner</span>
+                            <span
+                                class="px-3 py-1 bg-slate-800 text-slate-300 text-sm rounded-full border border-slate-700">Mentorship</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 bg-dark-bg relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="flex items-center gap-4 mb-16">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-white">Work Experience</h2>
+                    <div class="h-[1px] bg-dark-border flex-grow"></div>
+                </div>
+
+                <div class="relative border-l border-dark-border ml-3 md:ml-6 space-y-12">
+
+                    <!-- Exp 1: Founder -->
+                    <div class="relative pl-8 md:pl-10 reveal">
+                        <div
+                            class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-brand-400 rounded-full ring-4 ring-dark-bg">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">Founder & CEO</h3>
+                            <span
+                                class="text-brand-400 text-sm font-medium bg-brand-900/30 px-3 py-1 rounded-full w-max mt-2 md:mt-0">Present</span>
+                        </div>
+                        <h4 class="text-lg text-slate-400 mb-4 font-medium">ChangeMakersZB</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Leading the organization to foster social impact, driving tech-driven innovation, and
+                            building scalable platforms to empower communities and youth statewide.
+                        </p>
+                    </div>
+
+                    <!-- Exp 2: NGO Work -->
+                    <div class="relative pl-8 md:pl-10 reveal">
+                        <div
+                            class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-slate-600 rounded-full ring-4 ring-dark-bg">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">NGO Work / Core Member</h3>
+                            <span
+                                class="text-slate-400 text-sm font-medium border border-dark-border px-3 py-1 rounded-full w-max mt-2 md:mt-0">Jan
+                                2018 - Present</span>
+                        </div>
+                        <h4 class="text-lg text-slate-400 mb-4 font-medium">NalloreVattam, Chennai</h4>
+                        <ul class="list-disc list-outside ml-4 text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li><strong class="text-white">Strategic Leadership & Coordination:</strong> Served as a
+                                core member for 8+ years, organizing 70+ high-impact meetings and completing 20+
+                                advanced leadership training camps to drive rural development.</li>
+                            <li><strong class="text-white">Youth Mentorship & Training:</strong> Expertly host and lead
+                                training sessions for youth on financial planning, strategic investing, and the
+                                practical application of cutting-edge AI technologies.</li>
+                            <li><strong class="text-white">Data Systems Management:</strong> Managed comprehensive
+                                organizational data for the past 3 years, ensuring accuracy and streamlined access for
+                                the entire team.</li>
+                            <li><strong class="text-white">Continuous Innovation:</strong> Proactively identify and
+                                implement emerging AI tools and digital workflows to modernize team operations and
+                                enhance project efficiency.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Exp 3: Bank -->
+                    <div class="relative pl-8 md:pl-10 reveal">
+                        <div
+                            class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-slate-600 rounded-full ring-4 ring-dark-bg">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">Sub Staff</h3>
+                            <span
+                                class="text-slate-400 text-sm font-medium border border-dark-border px-3 py-1 rounded-full w-max mt-2 md:mt-0">Apr
+                                2024 - Sep 2025</span>
+                        </div>
+                        <h4 class="text-lg text-slate-400 mb-4 font-medium">Dhanlaxmi Bank Ltd., Vazhaipandal, Ranipet
+                        </h4>
+                        <ul class="list-disc list-outside ml-4 text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li>Supporting day-to-day banking operations and customer service.</li>
+                            <li>KYC Handling and processing.</li>
+                            <li>Assisting with Internet & Mobile Banking queries and setups.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Exp 4: Builders -->
+                    <div class="relative pl-8 md:pl-10 reveal">
+                        <div
+                            class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-slate-600 rounded-full ring-4 ring-dark-bg">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">Manager</h3>
+                            <span
+                                class="text-slate-400 text-sm font-medium border border-dark-border px-3 py-1 rounded-full w-max mt-2 md:mt-0">Dec
+                                2023 - Mar 2024</span>
+                        </div>
+                        <h4 class="text-lg text-slate-400 mb-4 font-medium">Thejas Builders Pvt. Ltd., Medavakkam,
+                            Chennai</h4>
+                        <ul class="list-disc list-outside ml-4 text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li>Delegated tasks efficiently while maintaining accountability and quality.</li>
+                            <li>Oversaw day-to-day operations ensuring efficiency and compliance.</li>
+                            <li>Handled resource allocation and vendor coordination effectively.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Exp 5: Accounting -->
+                    <div class="relative pl-8 md:pl-10 reveal">
+                        <div
+                            class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-slate-600 rounded-full ring-4 ring-dark-bg">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">Accounting Assistant</h3>
+                            <span
+                                class="text-slate-400 text-sm font-medium border border-dark-border px-3 py-1 rounded-full w-max mt-2 md:mt-0">Jun
+                                2023 - Nov 2023</span>
+                        </div>
+                        <h4 class="text-lg text-slate-400 mb-4 font-medium">Vookkam Associates, Ambattur, Chennai</h4>
+                        <ul class="list-disc list-outside ml-4 text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li>Maintained accurate records of financial transactions, including invoices and receipts.
+                            </li>
+                            <li>Assisted in the preparation of monthly, quarterly, and annual financial reports.</li>
+                            <li>Handled day-to-day bookkeeping using Tally Prime and MS Excel.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Exp 6: Tutor -->
+                    <div class="relative pl-8 md:pl-10 reveal">
+                        <div
+                            class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-slate-600 rounded-full ring-4 ring-dark-bg">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <h3 class="text-xl font-bold text-white">Private Tutor</h3>
+                            <span
+                                class="text-slate-400 text-sm font-medium border border-dark-border px-3 py-1 rounded-full w-max mt-2 md:mt-0">Jul
+                                2022 - Feb 2023</span>
+                        </div>
+                        <h4 class="text-lg text-slate-400 mb-4 font-medium">Kalam Tuition Centre, Vazhaipandal, Ranipet
+                        </h4>
+                        <ul class="list-disc list-outside ml-4 text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li>Taught Tuition for 50 plus students from Lkg to 12th std.</li>
+                            <li>Worked as a Maths Trainee Teacher at Govt. HR. Sec School, Vazhaipandal.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal">
+                <div class="flex items-center gap-4 mb-12 justify-center">
+                    <div class="h-[1px] bg-dark-border flex-grow max-w-xs hidden sm:block"></div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-white text-center">Featured Projects
+                    </h2>
+                    <div class="h-[1px] bg-dark-border flex-grow max-w-xs hidden sm:block"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Project 1 -->
+                    <div
+                        class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden card-hover group flex flex-col h-full">
+                        <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <i
+                                class="fas fa-book-open text-5xl text-indigo-400 relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold text-white mb-3">Book Creator AI</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                                Engineered a specialized <strong>Gemini Gem to automate the complete book creation
+                                    process</strong>, from initial drafting to final page layout. Integrated intelligent
+                                workflows to generate comprehensive author biographies and AI-powered visual assets,
+                                ensuring a professional, publication-ready output.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span
+                                    class="px-2 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded font-medium">Gemini
+                                    AI</span>
+                                <span
+                                    class="px-2 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded font-medium">Automation</span>
+                                <span
+                                    class="px-2 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded font-medium">Content
+                                    Gen</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div
+                        class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden card-hover group flex flex-col h-full">
+                        <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-blue-500/20 group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <i
+                                class="fas fa-chart-pie text-5xl text-brand-400 relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold text-white mb-3">Automated Dashboard</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                                Created an <strong>automated Google Sheets Dashboard</strong> designed to seamlessly
+                                collect, process, and analyze form responses, surveys, and provide detailed responder
+                                insights with visual data representation.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span
+                                    class="px-2 py-1 bg-brand-500/10 text-brand-400 text-xs rounded font-medium">Google
+                                    Sheets</span>
+                                <span class="px-2 py-1 bg-brand-500/10 text-brand-400 text-xs rounded font-medium">Data
+                                    Analytics</span>
+                                <span
+                                    class="px-2 py-1 bg-brand-500/10 text-brand-400 text-xs rounded font-medium">Automation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div
+                        class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden card-hover group flex flex-col h-full">
+                        <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-orange-500/20 group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <i
+                                class="fas fa-terminal text-5xl text-pink-400 relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold text-white mb-3">Prompting Applications</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                                Built <strong>prompt-based apps</strong> utilizing Gemini AI capabilities. Projects
+                                include a Food Suggestion App, Workout Scheduler, Quote Generator, AI Image Creator, and
+                                an interactive Admin Dashboard.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-xs rounded font-medium">Prompt
+                                    Engineering</span>
+                                <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-xs rounded font-medium">Gemini
+                                    AI</span>
+                                <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-xs rounded font-medium">App
+                                    Dev</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div
+                        class="bg-dark-card border border-dark-border rounded-2xl overflow-hidden card-hover group flex flex-col h-full">
+                        <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <i
+                                class="fas fa-chalkboard-teacher text-5xl text-emerald-400 relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold text-white mb-3">Summer Online Classes</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                                Conducted impactful <strong>online sessions</strong> across TamilNadu, actively teaching
+                                students and teachers about mobile-friendly AI tools and effectively utilizing free
+                                website creation platforms.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span
+                                    class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-medium">Education</span>
+                                <span
+                                    class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-medium">Public
+                                    Speaking</span>
+                                <span
+                                    class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded font-medium">Web
+                                    Basics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Achievements -->
+    <section id="education" class="py-24 bg-dark-bg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal grid lg:grid-cols-2 gap-12">
+
+                <!-- Education -->
+                <div>
+                    <div class="flex items-center gap-4 mb-10">
+                        <i class="fas fa-graduation-cap text-3xl text-brand-400"></i>
+                        <h2 class="font-heading text-3xl font-bold text-white">Education</h2>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-dark-card border border-dark-border rounded-2xl p-6">
+                            <h3 class="text-xl font-bold text-white">CA Intermediate <span
+                                    class="text-brand-400 text-sm font-medium ml-2">(Studying)</span></h3>
+                            <p class="text-slate-400 mt-1">Institute Of Chartered Accountants Of India</p>
+                        </div>
+
+                        <div
+                            class="bg-dark-card border border-dark-border rounded-2xl p-6 flex justify-between items-center">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">B.com General</h3>
+                                <p class="text-slate-400 text-sm mt-1">Madras University</p>
+                            </div>
+                            <span
+                                class="text-slate-500 text-sm font-medium border border-dark-border px-3 py-1 rounded-full">2021
+                                - 2024</span>
+                        </div>
+
+                        <div
+                            class="bg-dark-card border border-dark-border rounded-2xl p-6 flex justify-between items-center">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">12th Standard <span
+                                        class="text-brand-400 ml-2">80%</span></h3>
+                                <p class="text-slate-400 text-sm mt-1">GHSS, Vazhaipandal</p>
+                            </div>
+                            <span
+                                class="text-slate-500 text-sm font-medium border border-dark-border px-3 py-1 rounded-full">2019
+                                - 2020</span>
+                        </div>
+
+                        <div
+                            class="bg-dark-card border border-dark-border rounded-2xl p-6 flex justify-between items-center">
+                            <div>
+                                <h3 class="text-lg font-bold text-white">10th Standard <span
+                                        class="text-brand-400 ml-2">91%</span></h3>
+                                <p class="text-slate-400 text-sm mt-1">GHSS, Vazhaipandal</p>
+                            </div>
+                            <span
+                                class="text-slate-500 text-sm font-medium border border-dark-border px-3 py-1 rounded-full">2017
+                                - 2018</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div>
+                    <div class="flex items-center gap-4 mb-10">
+                        <i class="fas fa-trophy text-3xl text-yellow-500"></i>
+                        <h2 class="font-heading text-3xl font-bold text-white">Achievements</h2>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div
+                            class="bg-dark-card border border-dark-border rounded-2xl p-6 flex gap-4 items-start hover:border-yellow-500/30 transition-colors group">
+                            <div
+                                class="mt-1 bg-yellow-500/10 p-2 rounded-full text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white transition-colors">
+                                <i class="fas fa-star text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">National-Level Talent Exams</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Successfully cracked multiple
+                                    prestigious National-Level Talent Examinations.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-dark-card border border-dark-border rounded-2xl p-6 flex gap-4 items-start hover:border-yellow-500/30 transition-colors group">
+                            <div
+                                class="mt-1 bg-yellow-500/10 p-2 rounded-full text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white transition-colors">
+                                <i class="fas fa-award text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">Kalpana Chawla Award</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Received for completing the highest
+                                    number of mathematical calculations in the least amount of time.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-dark-card border border-dark-border rounded-2xl p-6 flex gap-4 items-start hover:border-yellow-500/30 transition-colors group">
+                            <div
+                                class="mt-1 bg-yellow-500/10 p-2 rounded-full text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white transition-colors">
+                                <i class="fas fa-medal text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">Gem Student Award</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Recognized and awarded the Gem Student
+                                    Award for academic and extracurricular excellence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <footer id="contact" class="bg-slate-900 border-t border-dark-border pt-20 pb-10 relative overflow-hidden">
+        <!-- Glow effect -->
+        <div
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-600/10 rounded-full blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-4xl font-bold text-white mb-6">Let's Connect</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-10">
+                    Open for opportunities, collaborations, or just a chat about AI, social impact, and tech
+                    innovations.
+                </p>
+                <a href="mailto:dhanushvm619@gmail.com"
+                    class="inline-block px-8 py-4 rounded-full bg-brand-500 text-white font-bold hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25">
+                    Say Hello <i class="fas fa-paper-plane ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 reveal">
+                <div
+                    class="flex flex-col items-center p-6 bg-dark-card border border-dark-border rounded-2xl text-center">
+                    <div
+                        class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-brand-400 mb-4 text-xl">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Location</h3>
+                    <p class="text-slate-400 text-sm">Arni, Tamilnadu, India</p>
+                </div>
+
+                <div
+                    class="flex flex-col items-center p-6 bg-dark-card border border-dark-border rounded-2xl text-center">
+                    <div
+                        class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-brand-400 mb-4 text-xl">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Email</h3>
+                    <a href="mailto:dhanushvm619@gmail.com"
+                        class="text-slate-400 text-sm hover:text-brand-400 transition-colors">dhanushvm619@gmail.com</a>
+                </div>
+
+                <div
+                    class="flex flex-col items-center p-6 bg-dark-card border border-dark-border rounded-2xl text-center">
+                    <div
+                        class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-brand-400 mb-4 text-xl">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="text-white font-bold mb-2">Phone</h3>
+                    <a href="tel:+916382386411"
+                        class="text-slate-400 text-sm hover:text-brand-400 transition-colors">+91 63823 86411</a>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-dark-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 reveal">
+                <p class="text-slate-500 text-sm">
+                    &copy; <span id="year"></span> Dhanush V. All rights reserved.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://linkedin.com/in/ca-dhanush-396a72325/" target="_blank"
+                        class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-500 transition-all">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:dhanushvm619@gmail.com"
+                        class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-500 transition-all">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-lg');
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.style.background = 'rgba(15, 23, 42, 0.8)';
+            }
+        });
+
+        // Intersection Observer for Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+
+        // Simple Typing Effect for Hero Section
+        const typedTextSpan = document.getElementById("typed-text");
+        const textArray = ["Social Impact Architect.", "AI & Tech Enthusiast.", "Founder & CEO."];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000; // Delay between current and next text
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 1100);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (textArray.length) setTimeout(type, newTextDelay + 250);
+        });
+
+    </script>
+</body>
+
+</html>

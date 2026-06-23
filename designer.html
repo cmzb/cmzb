@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasu M - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#FFD700', // A subtle gold/yellow accent inspired by the resume border
+                        dark: '#121212',
+                        darker: '#0a0a0a',
+                        card: '#1e1e1e',
+                        textMain: '#e0e0e0',
+                        textMuted: '#9ca3af'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFD700;
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #FFD700, #FDB931);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Glow Effects */
+        .glow-hover {
+            transition: all 0.3s ease;
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            border-color: #FFD700;
+        }
+
+        /* Timeline styling */
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+        }
+
+        .timeline-line {
+            border-left: 2px solid #333;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        /* Entrance Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        /* Hexagon shape for skills */
+        .skill-badge {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            border-color: #FFD700;
+            transform: translateY(-2px);
+            background: rgba(255, 215, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-primary selection:text-darker relative">
+
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary opacity-[0.03] rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-primary opacity-[0.03] rounded-full blur-3xl">
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-darker/80 backdrop-blur-md border-b border-gray-800 transition-all duration-300"
+        id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold tracking-wider text-white">
+                        V<span class="text-primary">M</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about"
+                            class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#experience"
+                            class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#education"
+                            class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                        <a href="#skills"
+                            class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#contact"
+                            class="bg-primary/10 text-primary hover:bg-primary hover:text-darker border border-primary transition-all px-4 py-2 rounded-full text-sm font-medium ml-4">Contact
+                            Me</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark border-b border-gray-800 absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about"
+                    class="block hover:bg-gray-800 hover:text-primary px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#experience"
+                    class="block hover:bg-gray-800 hover:text-primary px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#education"
+                    class="block hover:bg-gray-800 hover:text-primary px-3 py-2 rounded-md text-base font-medium">Education</a>
+                <a href="#skills"
+                    class="block hover:bg-gray-800 hover:text-primary px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#contact" class="block text-primary font-bold px-3 py-2 rounded-md text-base">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="pt-32 pb-20 min-h-screen flex items-center justify-center relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+
+                <!-- Text Content -->
+                <div class="md:w-3/5 text-center md:text-left z-10 animate-fade-up">
+                    <p class="text-primary font-medium tracking-wide mb-2">Hello, I am</p>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">Vasu M</h1>
+                    <h2 class="text-2xl md:text-3xl text-textMuted mb-6 font-light">
+                        <span class="text-white font-semibold">Student</span> &
+                        <span class="text-gradient font-semibold">UI/UX Designer</span>
+                    </h2>
+
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                        B.Sc. Computer Science student specializing in Artificial Intelligence.
+                        Passionate about applying AI technologies to address real-world challenges.
+                        Known for strong leadership skills and a proactive, collaborative approach in team environments.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                        <a href="#contact"
+                            class="bg-primary text-darker font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition-colors shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:shadow-[0_0_25px_rgba(255,215,0,0.5)]">
+                            Get in Touch
+                        </a>
+                        <div class="flex gap-4 items-center ml-2">
+                            <a href="mailto:mvasu7255@gmail.com"
+                                class="w-12 h-12 rounded-full bg-card border border-gray-700 flex items-center justify-center text-gray-300 hover:text-primary hover:border-primary transition-all glow-hover"
+                                title="Email Me">
+                                <i class="fas fa-envelope text-lg"></i>
+                            </a>
+                            <a href="tel:+916379821352"
+                                class="w-12 h-12 rounded-full bg-card border border-gray-700 flex items-center justify-center text-gray-300 hover:text-primary hover:border-primary transition-all glow-hover"
+                                title="Call Me">
+                                <i class="fas fa-phone-alt text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="md:w-2/5 flex justify-center z-10 animate-fade-up delay-200">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <!-- Decorative border -->
+                        <div
+                            class="absolute inset-0 rounded-full border-2 border-primary border-dashed animate-[spin_20s_linear_infinite] opacity-50">
+                        </div>
+                        <div class="absolute inset-2 rounded-full border border-gray-700"></div>
+                        <!-- Image Container -->
+                        <div
+                            class="absolute inset-4 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center shadow-2xl border-4 border-dark">
+                            <img src="vasu.png" alt="Vasu M" class="w-full h-full object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e1e1e/FFD700?text=VM';">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#experience" class="text-gray-500 hover:text-primary transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-dark border-t border-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold inline-block relative">
+                    Professional <span class="text-gradient">Experience</span>
+                    <div class="absolute w-1/2 h-1 bg-primary bottom-[-10px] left-1/4 rounded-full"></div>
+                </h2>
+            </div>
+
+            <div class="relative timeline-line animate-fade-up delay-100">
+
+                <!-- Current Role -->
+                <div class="mb-12 relative">
+                    <div class="timeline-dot"></div>
+                    <div
+                        class="bg-card p-6 rounded-2xl border border-gray-800 glow-hover hover:-translate-y-1 transition-transform">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">UI/UX Designer & Management Team Member</h3>
+                                <p class="text-primary font-medium mt-1">ChangeMakersZB</p>
+                            </div>
+                            <span
+                                class="inline-block mt-2 md:mt-0 px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 whitespace-nowrap self-start">Present</span>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Actively contributing to the management team while designing user-centric interfaces and
+                            experiences. Leveraging design thinking to solve complex problems and improve user
+                            engagement.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-20 bg-darker">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold inline-block relative">
+                    Academic <span class="text-gradient">Journey</span>
+                    <div class="absolute w-1/2 h-1 bg-primary bottom-[-10px] left-1/4 rounded-full"></div>
+                </h2>
+            </div>
+
+            <div class="relative timeline-line animate-fade-up delay-100">
+
+                <!-- College -->
+                <div class="mb-12 relative">
+                    <div class="timeline-dot"></div>
+                    <div
+                        class="bg-card p-6 rounded-2xl border border-gray-800 glow-hover hover:-translate-y-1 transition-transform">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">B.Sc Computer Science with AI</h3>
+                                <p class="text-gray-300 font-medium mt-1">DRBCCC HINDU COLLEGE</p>
+                            </div>
+                            <span
+                                class="inline-block mt-2 md:mt-0 px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full border border-gray-700 whitespace-nowrap self-start">2023
+                                - 2026</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">
+                            Pursuing specialized studies in Artificial Intelligence alongside core Computer Science
+                            curriculum.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- School -->
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <div
+                        class="bg-card p-6 rounded-2xl border border-gray-800 glow-hover hover:-translate-y-1 transition-transform">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Higher Secondary - Computer Science</h3>
+                                <p class="text-gray-300 font-medium mt-1">GOVERMENT HIGHER SECONDARY SCHOOL, SELLAMPATTU
+                                </p>
+                            </div>
+                            <span
+                                class="inline-block mt-2 md:mt-0 px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full border border-gray-700 whitespace-nowrap self-start">2022
+                                - 2023</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-primary font-semibold">
+                            <i class="fas fa-percentage text-xs"></i>
+                            <span>Score: 66.66%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-dark border-t border-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                <!-- Left Column: Technical & Soft Skills -->
+                <div class="animate-fade-up">
+                    <div class="mb-10">
+                        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-laptop-code text-primary"></i> Technical Skills
+                        </h2>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200"><i
+                                    class="fab fa-java mr-2 text-red-500"></i>Java</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200"><i
+                                    class="fab fa-python mr-2 text-blue-400"></i>Python</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200"><i
+                                    class="fab fa-html5 mr-2 text-orange-500"></i>HTML</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200"><i
+                                    class="fab fa-js mr-2 text-yellow-400"></i>JavaScript</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200"><i
+                                    class="fab fa-google mr-2 text-blue-500"></i>Google Workspace</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200"><i
+                                    class="fas fa-camera mr-2 text-purple-400"></i>Photo & Video Graphics</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200"><i
+                                    class="fas fa-film mr-2 text-pink-500"></i>Banner & Video Editing</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-brain text-primary"></i> Professional Skills
+                        </h2>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200">Design Thinking</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200">Decision Maker</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200">Leadership</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200">Speaking Skill</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200">Learning Quality</span>
+                            <span class="skill-badge px-4 py-2 rounded-lg text-sm text-gray-200">Proactive
+                                Teamwork</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interests & Languages -->
+                <div class="animate-fade-up delay-200">
+                    <div class="mb-10 bg-card p-6 rounded-2xl border border-gray-800">
+                        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 border-b border-gray-700 pb-4">
+                            <i class="fas fa-heart text-primary"></i> Areas of Interest
+                        </h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-desktop text-gray-500 w-6"></i> Compute Related Work
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-plane text-gray-500 w-6"></i> Travel
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-hands-helping text-gray-500 w-6"></i> Social Work
+                            </li>
+                            <li class="flex items-center text-gray-300">
+                                <i class="fas fa-running text-gray-500 w-6"></i> Kabaddi
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-card p-6 rounded-2xl border border-gray-800">
+                        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 border-b border-gray-700 pb-4">
+                            <i class="fas fa-language text-primary"></i> Languages
+                        </h2>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">Tamil</span>
+                                    <span class="text-xs text-gray-500">Native</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-1.5">
+                                    <div class="bg-primary h-1.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">English</span>
+                                    <span class="text-xs text-gray-500">Proficient</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-1.5">
+                                    <div class="bg-primary h-1.5 rounded-full opacity-80" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-darker relative overflow-hidden">
+        <!-- Decorative subtle pattern -->
+        <div class="absolute inset-0 opacity-[0.02]"
+            style="background-image: radial-gradient(#FFD700 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-card rounded-3xl p-8 md:p-12 border border-gray-800 text-center shadow-2xl animate-fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
+                <p class="text-gray-400 mb-8 max-w-lg mx-auto">
+                    Interested in working together or have a question? Feel free to reach out. I'm always open to
+                    discussing new projects, creative ideas or opportunities to be part of your visions.
+                </p>
+
+                <div class="flex flex-col md:flex-row justify-center gap-6 mb-8">
+                    <a href="tel:+916379821352"
+                        class="flex items-center justify-center gap-3 bg-dark p-4 rounded-xl border border-gray-700 hover:border-primary transition-colors group">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                            <i class="fas fa-phone-alt text-gray-400 group-hover:text-primary"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-xs text-gray-500">Phone</p>
+                            <p class="font-medium text-gray-200">6379821352</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:mvasu7255@gmail.com"
+                        class="flex items-center justify-center gap-3 bg-dark p-4 rounded-xl border border-gray-700 hover:border-primary transition-colors group">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                            <i class="fas fa-envelope text-gray-400 group-hover:text-primary"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-xs text-gray-500">Email</p>
+                            <p class="font-medium text-gray-200">mvasu7255@gmail.com</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div
+                    class="flex items-center justify-center gap-3 bg-dark p-4 rounded-xl border border-gray-700 max-w-md mx-auto">
+                    <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-map-marker-alt text-gray-400"></i>
+                    </div>
+                    <div class="text-left text-sm text-gray-300">
+                        83 colony Sellampattu post,<br>Kallakurichi district - 606207.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-8 border-t border-gray-900 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="text-gray-500 text-sm">
+                &copy; <span id="year"></span> Vasu M. All rights reserved.
+            </p>
+            <div class="mt-4 flex justify-center space-x-4 text-gray-600">
+                <p class="text-xs">B.Sc CS with AI</p>
+                <span>&bull;</span>
+                <p class="text-xs">UI/UX Designer</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg');
+                nav.classList.replace('bg-darker/80', 'bg-darker/95');
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.classList.replace('bg-darker/95', 'bg-darker/80');
+            }
+        });
+
+        // Intersection Observer for animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Pause animations initially if they are out of view (optional, the CSS handles initial state usually)
+        // document.querySelectorAll('.animate-fade-up').forEach((el) => {
+        //    el.style.animationPlayState = 'paused';
+        //    observer.observe(el);
+        // });
+    </script>
+</body>
+
+</html>
