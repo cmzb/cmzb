@@ -79,19 +79,19 @@ We are a lean, agile team of developers, designers, and AI specialists based in 
 
 * **Dhanush** - *Founder & CEO* (Leadership)
   * Tech visionary specializing in business automation systems and AI product strategy.
-  * [Founder Portfolio](founder.html)
+  * [Founder Portfolio](https://cmzb.github.io/cmzb/founder.html)
 * **Madhavan Srinivasan** - *Co-Founder & CTO* (AI/ML)
   * Specialist in building Advanced AI, Machine Learning, and Automation Technologies.
   * [CTO Portfolio](https://s-madhavan001.github.io/mad.github.io/Madhavan.html)
 * **Vasu** - *UI/UX Designer* (Design)
   * Turning product visions into engaging, responsive, and aesthetically premium user interfaces.
-  * [Designer Portfolio](designer.html)
+  * [Designer Portfolio](https://cmzb.github.io/cmzb/designer.html)
 * **Gunalan** - *Software Developer & QA Engineer* (Engineering)
   * Dedicated to engineering robustness and conducting comprehensive quality assurance.
   * [LinkedIn Profile](https://www.linkedin.com/in/gunalan-k-357a8a20a)
 * **Sarumathi** - *Generative AI Developer* (AI/ML)
   * Building prompt flows, orchestration, and integrations using LLMs and Generative AI.
-  * [GenAI Developer Portfolio](https://sarumathi.changemakers.in)
+  * [GenAI Developer Portfolio](https://cmzb.github.io/cmzb/dev.html)
 
 ---
 
